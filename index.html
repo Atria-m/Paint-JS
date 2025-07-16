@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-all duration-500">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="./src/tailwind/main.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-400 via-indigo-300 to-purple-400 dark:from-gray-900 dark:via-slate-800 dark:to-black transition-all duration-700 p-2"
+  >
+    <div
+      class="container w-full max-w-[95%] sm:max-w-[800px] min-h-[90vh] sm:min-h-[500px] rounded-xl bg-white dark:bg-[#2b2b38] shadow-2xl dark:shadow-[0_0_60px_0_rgba(0,140,255,0.4)] transition-all duration-700 select-none flex flex-col"
+    >
+      <div
+        class="tools-area flex flex-wrap sm:flex-nowrap gap-3 justify-between items-start sm:items-center border-b rounded-t-xl border-[#ccc] dark:border-[#3a3a4d] px-3 py-2 bg-white dark:bg-[#2f2f3a] text-black dark:text-blue-200 transition-all duration-500"
+      >
+        <div class="tools flex flex-wrap gap-3 items-center w-full sm:w-[70%]">
+          <div
+            class="eraser flex items-center gap-1 text-sm transition duration-200"
+          >
+            <i class="fa-solid fa-eraser"></i>
+            <label>eraser</label>
+          </div>
+          <div
+            class="brush active hover:text-blue-400 flex items-center gap-1 text-sm transition duration-200"
+          >
+            <i class="fa-solid fa-paintbrush"></i>
+            <label>brush</label>
+          </div>
+          <div
+            class="color flex items-center gap-1 text-sm transition duration-200"
+          >
+            <i class="fa-solid fa-palette"></i>
+            <label for="color-picker">color</label>
+            <input
+              class="w-6 h-4 bg-transparent cursor-pointer"
+              type="color"
+              id="color-picker"
+            />
+          </div>
+          <div class="flex items-center gap-3">
+            <input
+              type="range"
+              id="brush-width"
+              min="1"
+              max="10"
+              value="5"
+              class="w-32 h-2 appearance-none rounded-lg bg-gray-300 dark:bg-gray-700 accent-blue-500 cursor-pointer transition duration-300 hover:accent-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <span
+              id="brush-width-display"
+              class="min-w-[2rem] text-sm font-bold text-blue-600 dark:text-blue-300 bg-gray-100 dark:bg-[#3a3a4d] border border-gray-300 dark:border-[#4a4a5f] px-2 py-0.5 rounded-lg shadow-md text-center transition-all duration-300 sm:mb-[2px]"
+            >
+              > 5
+            </span>
+          </div>
+        </div>
+        <div
+          class="buttons flex gap-2 sm:gap-3 items-center mt-2 sm:mt-0 sm:flex-wrap-reverse sm:justify-end"
+        >
+          <button
+            class="save py-1 px-3 text-sm rounded cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition"
+          >
+            save
+          </button>
+          <button
+            class="clear py-1 px-3 text-sm rounded cursor-pointer bg-slate-200 hover:bg-slate-400 dark:bg-[#3a3a4d] dark:hover:bg-[#4a4a5f] dark:text-blue-100 transition"
+          >
+            clear
+          </button>
+          <div class="toggle shrink-0 relative w-9 h-9 sm:mb-[2px]">
+            <input id="theme-toggle" type="checkbox" />
+            <span class="button"></span>
+            <span class="label"><i class="fa-solid fa-moon"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="draw-area flex-grow overflow-hidden">
+        <canvas
+          class="w-full h-full min-h-[400px] sm:min-h-[450px] rounded-b-[10px] bg-white transition-all duration-500"
+        ></canvas>
+      </div>
+    </div>
+
+    <script src="./src/js/main.js"></script>
+  </body>
+</html>

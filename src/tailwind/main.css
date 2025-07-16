@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: 2px solid lightgray;
+}
+label,
+i {
+  cursor: pointer;
+  margin: 0 3px;
+}
+.active {
+  color: #4a98f7;
+}
+.toggle {
+  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.toggle:before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.15;
+}
+
+.toggle .button {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #eaeaea;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.toggle .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 36px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.toggle input {
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+.toggle input:checked ~ .button {
+  background: #333;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.toggle input:checked ~ .label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
