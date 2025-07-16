@@ -78,3 +78,31 @@ saveBtn.addEventListener("click", () => {
   link.href = canvas.toDataURL();
   link.click();
 });
+
+canvas.addEventListener("touchstart", (e) => {
+  e.preventDefault(); 
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+  isDrawing = true;
+  ctx.beginPath();
+  ctx.lineWidth = currenWidth;
+  ctx.moveTo(x, y);
+});
+
+canvas.addEventListener("touchmove", (e) => {
+  if (!isDrawing) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+  ctx.lineTo(x, y);
+  ctx.strokeStyle = currenColor;
+  ctx.stroke();
+});
+
+canvas.addEventListener("touchend", () => {
+  isDrawing = false;
+});
